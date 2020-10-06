@@ -1,3 +1,15 @@
+# Trello Clone
+
+![Alt text](./uploads/readme/trello-clone.png?raw=true "Trello Clone")
+
+## stack
+
+`styled-components`
+<br/>
+`React DnD`
+
+<br/>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
