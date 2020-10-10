@@ -28,7 +28,16 @@ module.exports = {
         'plugin:prettier/recommended' // Make sure this is always the last element in the array.
     ],
     rules: {
-        'prettier/prettier': ['error', {}, { usePrettierrc: true }]
+        'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+        "@typescript-eslint/ban-types": [
+            "error",
+            {
+              "extendDefaults": true,
+              "types": {
+                "{}": false
+              }
+            }
+          ]
     },
     plugins: ['simple-import-sort']
 };

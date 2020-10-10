@@ -1,10 +1,8 @@
 import React from 'react';
-
 import { Column } from './Column';
 import { AppContainer } from './styles';
-import { AddNewItem } from './AddNewItem';
-
 import { useAppState } from './AppStateContext';
+import { AddNewItem } from './AddNewItem';
 
 const App = () => {
     const { state, dispatch } = useAppState();
@@ -12,7 +10,7 @@ const App = () => {
     return (
         <AppContainer>
             {state.lists.map((list, i) => (
-                <Column text={list.text} key={list.id} index={i} id={list.id} />
+                <Column id={list.id} text={list.text} key={list.id} index={i} />
             ))}
             <AddNewItem
                 toggleButtonText="+ Add another list"
