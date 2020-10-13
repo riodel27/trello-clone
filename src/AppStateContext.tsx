@@ -39,6 +39,15 @@ type Action =
               dragIndex: number;
               hoverIndex: number;
           };
+      }
+    | {
+          type: 'MOVE_TASK';
+          payload: {
+              dragIndex: number;
+              hoverIndex: number;
+              sourceColumn: string;
+              targetColumn: string;
+          };
       };
 
 interface AppStateContextProps {
@@ -76,6 +85,15 @@ const appStateReducer = (state: AppState, action: Action): AppState => {
             state.lists = moveItem(state.lists, dragIndex, hoverIndex);
             return { ...state };
         }
+        case 'MOVE_TASK': {
+            const { dragIndex, hoverIndex, sourceColumn, targetColumn } = action.payload;
+            const sourceLaneIndex = findItemIndexById(state.lists, sourceColumn);
+            const targetLaneIndex = findItemIndexById(state.lists, targetColumn);
+            const item = state.lists[sourceLaneIndex].tasks.splice(dragIndex, 1)[0];
+            state.lists[targetLaneIndex].tasks.splice(hoverIndex, 0, item);
+            return { ...state };
+        }
+
         default: {
             return state;
         }

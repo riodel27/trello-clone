@@ -46,7 +46,7 @@ export const Column = ({ text, index, id, isPreview }: ColumnProps) => {
             isHidden={isHidden(isPreview, state.draggedItem, 'COLUMN', id)}>
             <ColumnTitle>{text}</ColumnTitle>
             {state.lists[index].tasks.map((task, i) => (
-                <Card text={task.text} key={task.id} index={i} />
+                <Card id={task.id} columnId={id} text={task.text} key={task.id} index={i} />
             ))}
             <AddNewItem
                 toggleButtonText="+ Add another card"
